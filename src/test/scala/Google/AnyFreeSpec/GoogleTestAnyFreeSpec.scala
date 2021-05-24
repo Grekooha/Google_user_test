@@ -1,5 +1,6 @@
-package Google
+package Google.AnyFreeSpec
 
+import Google.Method.GoogleTestMethod
 import org.scalatest.freespec.AnyFreeSpec
 
 class GoogleTestAnyFreeSpec extends AnyFreeSpec {
@@ -8,6 +9,6 @@ class GoogleTestAnyFreeSpec extends AnyFreeSpec {
   "execute joint code from separate method" in {
     page.openGoogle()
     page.inputTextAndPressEnter("selenide")
-    page.assertHasResult()
+    page.assertHasResult("Selenide: concise UI tests in Java")
   }
 }
