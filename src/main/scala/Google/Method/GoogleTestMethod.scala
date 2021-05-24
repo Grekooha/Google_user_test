@@ -14,10 +14,10 @@ class GoogleTestMethod {
       .pressEnter()
   }
 
-  def assertHasResult(asserHasResultText: String): Unit = {
+  def assertHasResult(assertHasResultText: String): Unit = {
     $$("#search .g").shouldHave(CollectionCondition.size(15))
     $("#search .g")
-      .shouldHave(Condition.text(asserHasResultText))
+      .shouldHave(Condition.text(assertHasResultText))
 
       .shouldBe(Condition.visible)
   }
