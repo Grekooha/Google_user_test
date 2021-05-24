@@ -1,4 +1,4 @@
-package Google.AnyFreeSpec
+package Google.GoogleSearchTest
 
 import Google.Method.GoogleTestMethod
 import org.scalatest.freespec.AnyFreeSpec
