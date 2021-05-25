@@ -1,16 +1,15 @@
-package Google.GoogleSearchTest
+package Google
 
-import Google.Method.GoogleTestMethod
 import org.scalatest.flatspec.AnyFlatSpec
 
-class GoogleTestAnyFlatSpec extends AnyFlatSpec {
-  private val page = new GoogleTestMethod()
+class GooglePage extends AnyFlatSpec {
+  private val page = new Google()
 
   "The method" should "open the site" in {
     page.openGoogle()
   }
   it should "input text and press enter" in {
-    page.inputTextAndPressEnter("selenide")
+    page.inputText("selenide")
   }
   it should "assert has the result" in {
     page.assertHasResult("Selenide: concise UI tests in Java")

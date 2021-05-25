@@ -1,22 +1,25 @@
-package Google.Method
+package Google
 
 import com.codeborne.selenide.Selenide.{$, $$, open}
 import com.codeborne.selenide.{CollectionCondition, Condition}
 import org.openqa.selenium.By
 
-class GoogleTestMethod {
-  def openGoogle(): Unit =
-    open("http://www.google.com")
+class Google {
+  val cssSelector: String = "#search .g"
+  val url: String = "http://www.google.com"
 
-  def inputTextAndPressEnter(searchText: String): Unit = {
+  def openGoogle(): Unit =
+    open(url)
+
+  def inputText(searchText: String): Unit = {
     $(By.name("q"))
       .setValue(searchText)
       .pressEnter()
   }
 
   def assertHasResult(assertHasResultText: String): Unit = {
-    $$("#search .g").shouldHave(CollectionCondition.size(15))
-    $("#search .g")
+    $$(cssSelector).shouldHave(CollectionCondition.size(15))
+    $(cssSelector)
       .shouldHave(Condition.text(assertHasResultText))
       .shouldBe(Condition.visible)
   }
