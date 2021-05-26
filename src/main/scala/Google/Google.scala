@@ -15,29 +15,35 @@ class Google {
   private val enterLogin = $("#identifierId")
   private val enterPassword = $("#password input")
 
-  def openGoogle(): Unit =
+  def openGoogle(): Google = {
     open(url)
+    this
+  }
 
-  def inputText(searchText: String): Unit = {
+  def inputText(searchText: String): Google = {
     entryField
       .setValue(searchText)
       .pressEnter()
+    this
   }
 
-  def hasResult(assertHasResultText: String): Unit = {
+  def hasResult(assertHasResultText: String): Google = {
     selectSearchField.shouldHave(CollectionCondition.size(15) )
     selectSearchField.first()
       .shouldHave(Condition.text(assertHasResultText))
       .shouldBe(Condition.visible)
+    this
   }
 
-  def pressButtonSignIn(): Unit = {
+  def pressButtonSignIn(): Google = {
     button
     .pressEnter()
+    this
   }
 
-  def login() {
+  def login(): Google = {
     enterLogin.setValue(username).pressEnter
     enterPassword.setValue(password).pressEnter
+    this
   }
 }
