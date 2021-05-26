@@ -15,6 +15,6 @@ class GooglePage extends AnyFlatSpec {
   "User" should "log in" in {
     page.openGoogle()
     page.pressButtonSignIn()
-    page.authorisation()
+    page.login()
   }
 }

@@ -36,8 +36,8 @@ class Google {
     .pressEnter()
   }
 
-  def authorisation() {
-    enterLogin.`val`(username).pressEnter
-    enterPassword.`val`(password).pressEnter
+  def login() {
+    enterLogin.setValue(username).pressEnter
+    enterPassword.setValue(password).pressEnter
   }
 }
