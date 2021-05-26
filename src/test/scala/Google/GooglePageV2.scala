@@ -14,5 +14,6 @@ class GooglePageV2 extends AnyFreeSpec {
       .openGoogle()
       .pressButtonSignIn()
       .login()
+
   }
 }
