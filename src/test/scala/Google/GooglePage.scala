@@ -12,7 +12,7 @@ class GooglePage extends AnyFlatSpec {
   it should "assert has the result" in {
     page.hasResult("Selenide: concise UI tests in Java")
   }
- "User" should "log in" in {
+  "User" should "log in" in {
     page.openGoogle()
     page.pressButtonSignIn()
     page.authorisation()
