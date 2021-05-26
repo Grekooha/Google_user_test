@@ -2,39 +2,42 @@ package Google
 
 import com.codeborne.selenide.Selectors.byText
 import com.codeborne.selenide.Selenide.{$, $$, open}
-import com.codeborne.selenide.{CollectionCondition, Condition}
+import com.codeborne.selenide.{CollectionCondition, Condition, ElementsCollection}
 import org.openqa.selenium.By
 
 class Google {
-  val cssSelector: String = "#search .g"
-  val url: String = "http://www.google.com"
+  private val selectSearchField: ElementsCollection = $$("#search .g")
+  private val url: String = "http://www.google.com"
   private val username = "test.grekooha"
   private val password = "Qazxc31367"
-
+  private val entryField = $(By.name("q"))
+  private val button = $(byText("Sign in"))
+  private val enterLogin = $("#identifierId")
+  private val enterPassword = $("#password input")
 
   def openGoogle(): Unit =
     open(url)
 
   def inputText(searchText: String): Unit = {
-    $(By.name("q"))
+    entryField
       .setValue(searchText)
       .pressEnter()
   }
 
-  def assertHasResult(assertHasResultText: String): Unit = {
-    $$(cssSelector).shouldHave(CollectionCondition.size(15))
-    $(cssSelector)
+  def hasResult(assertHasResultText: String): Unit = {
+    selectSearchField.shouldHave(CollectionCondition.size(15) )
+    selectSearchField.first()
       .shouldHave(Condition.text(assertHasResultText))
       .shouldBe(Condition.visible)
   }
 
-  def pressButton(buttonName:String): Unit = {
-    $(byText(buttonName))
-      .pressEnter()
+  def pressButtonSignIn(): Unit = {
+    button
+    .pressEnter()
   }
 
-  def login() {
-    $("#identifierId").`val`(username).pressEnter
-    $("#password input").`val`(password).pressEnter
+  def authorisation() {
+    enterLogin.`val`(username).pressEnter
+    enterPassword.`val`(password).pressEnter
   }
 }

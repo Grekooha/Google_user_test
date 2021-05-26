@@ -8,9 +8,9 @@ class GooglePageV2 extends AnyFreeSpec {
   "execute joint code from separate method" in {
     page.openGoogle()
     page.inputText("selenide")
-    page.assertHasResult("Selenide: concise UI tests in Java")
+    page.hasResult("Selenide: concise UI tests in Java")
     page.openGoogle()
-    page.pressButton("Sign in")
-    page.login()
+    page.pressButtonSignIn()
+    page.authorisation()
   }
 }
