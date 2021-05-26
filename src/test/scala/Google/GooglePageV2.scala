@@ -6,6 +6,7 @@ class GooglePageV2 extends AnyFreeSpec {
   private val page = new Google()
 
   "execute joint code from separate method" in {
+
     page
       .openGoogle()
       .inputText("selenide")
