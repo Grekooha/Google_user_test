@@ -10,12 +10,14 @@ class GooglePage extends AnyFlatSpec {
     page
       .openGoogle()
       .inputText("selenide")
+
   }
 
   it should "assert has the result" in {
 
     page
       .hasResult("Selenide: concise UI tests in Java")
+
   }
 
   "User" should "log in" in {
@@ -24,5 +26,6 @@ class GooglePage extends AnyFlatSpec {
       .openGoogle()
       .pressButtonSignIn()
       .login()
+
   }
 }
